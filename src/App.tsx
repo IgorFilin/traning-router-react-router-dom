@@ -18,11 +18,11 @@ function App() {
                 <Route path={'/login'} element={<div>login</div>}/>
                 <Route path={'/profile/'} element={
                     <div>profile<Outlet/></div>}>
+                    <Route index element={<div>create id</div>}/>
                     <Route path={'*'} element={<div>page not found</div>}/>
                     <Route path={':id'} element={<div>id</div>}/>
                     <Route path={'/profile/settings'} element={<div>settings</div>}/>
                 </Route>
-
             </Routes>
 
 
