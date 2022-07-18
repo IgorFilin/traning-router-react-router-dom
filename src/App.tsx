@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {NavLink, Route, Routes} from "react-router-dom";
+import {NavLink, Outlet, Route, Routes} from "react-router-dom";
 
 function App() {
     return (
@@ -16,14 +16,10 @@ function App() {
             <Routes>
                 <Route path={'/'} element={<div>main</div>}/>
                 <Route path={'/login'} element={<div>login</div>}/>
-                <Route path={'/profile/*'} element={
-                    <div>
-                        profile
-                        <Routes>
-                            <Route path={'/settings'} element={<div>settings</div>}/>
-                        </Routes>
-                    </div>}
-                />
+                <Route path={'/profile/'} element={
+                    <div>profile<Outlet/></div>}>
+                    <Route path={'/profile/settings'} element={<div>settings</div>}/>
+                </Route>
 
             </Routes>
 
