@@ -18,6 +18,8 @@ function App() {
                 <Route path={'/login'} element={<div>login</div>}/>
                 <Route path={'/profile/'} element={
                     <div>profile<Outlet/></div>}>
+                    <Route path={'*'} element={<div>page not found</div>}/>
+                    <Route path={':id'} element={<div>id</div>}/>
                     <Route path={'/profile/settings'} element={<div>settings</div>}/>
                 </Route>
 
