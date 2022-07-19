@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {NavLink, Outlet, Route, Routes} from "react-router-dom";
+import {NavLink, Outlet, Route, Routes, useParams} from "react-router-dom";
 
 function App() {
     return (
@@ -29,13 +29,14 @@ function App() {
             <NavLink to='/users'>USERS --</NavLink>
             <NavLink to='/messages'>MESSAGES --</NavLink>
             <NavLink to='/profile'>PROFILE --</NavLink>
-            <NavLink to='/profile/myPosts'>MYPOST </NavLink>
+            <NavLink to='/profile/myPosts'>MYPOST --</NavLink>
+            <NavLink to='/users/1'>USER ID 1 </NavLink>
 
 
             <Routes>
                 <Route path='/*' element={<div>Error 404</div>} />
                 <Route path='/' element={<div>MAIN</div>}/>
-                <Route path='/users/*' element={<div>MY USERS</div>}/>
+                <Route path='/users/:id' element={<Users/>}/>
                 <Route path='/messages' element={<div>MY MESSAGES<Outlet/></div>}>
                 <Route index element={<div>CHANGE MESSAGES</div>} />
                     <Route path=':messages' element={<div>NEW MESSAGES</div>}/>
@@ -54,5 +55,16 @@ function App() {
         </div>
     );
 }
+
+export const Users= () => {
+    const param = useParams()
+    console.log(param)
+
+
+    return(<div>USERS</div>)
+
+}
+
+
 
 export default App;
