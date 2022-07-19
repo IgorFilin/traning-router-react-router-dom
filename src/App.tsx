@@ -36,8 +36,12 @@ function App() {
                 <Route path='/*' element={<div>Error 404</div>} />
                 <Route path='/' element={<div>MAIN</div>}/>
                 <Route path='/users/*' element={<div>MY USERS</div>}/>
-                <Route path='/messages' element={<div>MY MESSAGES</div>}/>
+                <Route path='/messages' element={<div>MY MESSAGES<Outlet/></div>}>
+                <Route index element={<div>CHANGE MESSAGES</div>} />
+                    <Route path=':messages' element={<div>NEW MESSAGES</div>}/>
+                </Route>
                 <Route path='/profile' element={<div>MY PROFILE<Outlet/></div>}>
+                    <Route path=':nameID' element={<div>ID</div>}/>
                     <Route path='/profile/myPosts' element={<div>MY POST</div>}/>
                 </Route>
 
