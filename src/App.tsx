@@ -25,18 +25,18 @@ function App() {
             {/*        <Route path={'/profile/settings'} element={<div>settings</div>}/>*/}
             {/*    </Route>*/}
             {/*</Routes>*/}
-            <NavLink to='/'>MAIN --</NavLink>
+            <NavLink to='/' style={({isActive})=>{ return {color:isActive ?"lime": 'black'}}}>MAIN --</NavLink>
             <NavLink to='/users'>USERS --</NavLink>
             <NavLink to='/messages'>MESSAGES --</NavLink>
             <NavLink to='/profile'>PROFILE --</NavLink>
             <NavLink to='/profile/myPosts'>MYPOST --</NavLink>
-            <NavLink to='/users/1'>USER ID 1 </NavLink>
+            <NavLink to='/users/1/Igor'>USER ID 1 </NavLink>
 
 
             <Routes>
                 <Route path='/*' element={<div>Error 404</div>} />
                 <Route path='/' element={<div>MAIN</div>}/>
-                <Route path='/users/:id' element={<Users/>}/>
+                <Route path='/users/:id/:name' element={<Users/>}/>
                 <Route path='/messages' element={<div>MY MESSAGES<Outlet/></div>}>
                 <Route index element={<div>CHANGE MESSAGES</div>} />
                     <Route path=':messages' element={<div>NEW MESSAGES</div>}/>
@@ -57,7 +57,7 @@ function App() {
 }
 
 export const Users= () => {
-    const param = useParams()
+    const param = useParams<'id'|'name'>()
     console.log(param)
 
 
