@@ -37,13 +37,10 @@ function App() {
                 <Route path='/' element={<div>MAIN</div>}/>
                 <Route path='/users/*' element={<div>MY USERS</div>}/>
                 <Route path='/messages' element={<div>MY MESSAGES</div>}/>
-                <Route path='/profile/*' element={
-                    <div>
-                    MY PROFILE
-                    <Routes>
-                        <Route path='/myPosts' element={<div>MY POST</div>}/>
-                    </Routes>
-                </div>}/>
+                <Route path='/profile' element={<div>MY PROFILE<Outlet/></div>}>
+                    <Route path='/profile/myPosts' element={<div>MY POST</div>}/>
+                </Route>
+
 
 
 
