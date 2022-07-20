@@ -1,9 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {NavLink, Outlet, Route, Routes, useParams} from "react-router-dom";
+import {NavLink, Outlet, Route, Routes, useNavigate, useParams} from "react-router-dom";
 
 function App() {
+
+
+
     return (
         <div className="App">
             {/*<span><NavLink to={'/'}>main</NavLink></span>*/}
@@ -59,9 +62,9 @@ function App() {
 export const Users= () => {
     const param = useParams<'id'|'name'>()
     console.log(param)
+   const navigate =  useNavigate()
 
-
-    return(<div>USERS</div>)
+    return(<div>USERS<button onClick={()=> {navigate('/messages')}}>messages</button></div>)
 
 }
 
